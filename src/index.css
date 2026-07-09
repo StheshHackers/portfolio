@@ -563,6 +563,21 @@ footer {
         padding: 14px 24px;
         font-size: 0.9rem;
     }
+
+    /* --- BUTTON RESPONSIVE RECOVERY --- */
+    .btn-primary, 
+    .btn-secondary {
+        display: block;      /* Force buttons to occupy their own lines */
+        width: 100%;         /* Expand to full touch-friendly width */
+        text-align: center;  /* Center the button text nicely */
+        margin-bottom: 15px; /* Create a safety barrier so they never overlap */
+    }
+
+    /* Remove the bottom margin from the last button inside a group */
+    .btn-secondary {
+        margin-bottom: 0;
+    }
+    
 }
 
 /* Extra small mobile adjustments for tiny screen widths */
