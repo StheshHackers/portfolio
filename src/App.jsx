@@ -98,7 +98,6 @@ function App() {
     }
   };
 
-  // Logic to process the Mini CTF vulnerability submission
   const checkCtfSolution = () => {
     const cleanInput = ctfInput.trim().toLowerCase();
     if (cleanInput.includes("admin=true") || cleanInput === "?admin=true") {
@@ -151,11 +150,6 @@ function App() {
 
   return (
     <div>
-      {/* Dark Mode Floating Toggle Switch */}
-      <button className="dark-toggle" onClick={() => setDarkMode(!darkMode)} aria-label="Toggle Dark Mode">
-        <i className={darkMode ? "fas fa-sun" : "fas fa-moon"}></i>
-      </button>
-
       {/* Sidebar View */}
       <div className={`sidebar ${sidebarOpen ? "active" : ""}`}>
         <a href="#home" onClick={() => setSidebarOpen(false)}>Home</a>
@@ -175,6 +169,25 @@ function App() {
           <a href="#projects">Projects</a>
           <a href="#toolkit">Security Suite</a>
           <a href="#contact">Contact</a>
+          
+          {/* Inline Navbar Mode Toggle Button with Emojis */}
+          <button 
+            onClick={() => setDarkMode(!darkMode)} 
+            aria-label="Toggle Dark Mode"
+            style={{
+              background: "transparent",
+              border: "none",
+              fontSize: "1.3rem",
+              cursor: "pointer",
+              padding: "5px 10px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            {darkMode ? "☀️" : "🌙"}
+          </button>
+
           <a href="mailto:dinilangaathabile@gmail.com" id="hireme" className="btn-primary" style={{ padding: "10px 20px", fontSize: "0.8rem" }}>Hire Me</a>
         </div>
         <div className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
@@ -193,7 +206,7 @@ function App() {
         </div>
       </section>
 
-      {/* Live Threat Incident Feed Ticker (NEW) */}
+      {/* Live Threat Incident Feed Ticker */}
       <div style={{ background: "#020617", color: "#10b981", fontFamily: "monospace", padding: "10px 5%", fontSize: "0.8rem", borderBottom: "2px solid #1e293b", overflow: "hidden" }}>
         <div style={{ display: "flex", gap: "20px", whiteSpace: "nowrap" }}>
           <span style={{ color: "#ef4444", fontWeight: "bold" }}>⚡ LIVE SEC-LOGS:</span>
@@ -226,7 +239,7 @@ function App() {
         </div>
       </section>
 
-            {/* PROFESSIONAL CERTIFICATIONS SECTION */}
+      {/* Professional Certifications Section */}
       <section id="certifications" style={{ padding: "100px 10%", background: "var(--ghost-white)" }}>
         <h2 className="section-title">Verified Qualifications</h2>
         <p className="about-subtitle" style={{ textAlign: "center", marginTop: "-40px", marginBottom: "50px", fontSize: "0.95rem" }}>
@@ -234,9 +247,8 @@ function App() {
         </p>
         
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "25px" }}>
-          
           {[
-            { title: "Ethical Hacker", desc: "Advanced foundational concepts in penetration testing frameworks, footprinting, reconnaissance, and vulnerability assessment vectors.", icon: "./" },
+            { title: "Ethical Hacker", desc: "Advanced foundational concepts in penetration testing frameworks, footprinting, reconnaissance, and vulnerability assessment vectors.", icon: "fa-user-shield" },
             { title: "Introduction to Cybersecurity", desc: "Comprehensive overview of the global threat landscape, data privacy governance, cryptography paradigms, and infrastructure shielding.", icon: "fa-user-shield" },
             { title: "Introduction to Networking", desc: "In-depth architecture of routing and switching matrices, OSI/TCP-IP layers, IP addressing subnet logic, and network media operations.", icon: "fa-network-wired" },
             { title: "Python Essentials 2", desc: "Advanced object-oriented programming (OOP), packages, modules, string/list processing algorithms, exception handling hierarchies, and file I/O operations.", icon: "fa-code" },
@@ -275,10 +287,8 @@ function App() {
               <p className="about-subtitle" style={{ fontSize: "0.85rem", margin: "0", lineHeight: "1.5" }}>{cert.desc}</p>
             </div>
           ))}
-
         </div>
       </section>
-
 
       {/* Deployments Section */}
       <section id="projects">
@@ -311,12 +321,12 @@ function App() {
         </div>
       </section>
 
-            {/* ADVANCED COMBINED SECURITY SUITE (Crypto + CTF Simulator + Security Audit Scanner) */}
+      {/* Advanced Security Suite */}
       <section id="toolkit" style={{ padding: "100px 10%" }}>
         <h2 className="section-title">Interactive Security Suite</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px" }}>
           
-          {/* Column 1: Crypto Panel Sub-block */}
+          {/* Crypto Panel */}
           <div style={{ background: "var(--card-bg)", padding: "35px", borderRadius: "24px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", gap: "20px" }}>
             <h3>SecOps Cryptographic Toolkit</h3>
             <p className="about-subtitle" style={{ fontSize: "0.9rem" }}>Process hashing transformations and cryptographic payload mappings completely client-side.</p>
@@ -348,7 +358,7 @@ function App() {
             )}
           </div>
 
-          {/* Column 2: Vulnerability Lab Sandbox */}
+          {/* Vulnerability Lab Sandbox */}
           <div style={{ background: "var(--card-bg)", padding: "35px", borderRadius: "24px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", gap: "20px" }}>
             <h3>Vulnerability Lab Sandbox</h3>
             <p className="about-subtitle" style={{ fontSize: "0.9rem" }}>Test your auditing accuracy. Discover the parameter injection configuration required to escalate authentication privileges.</p>
@@ -381,10 +391,9 @@ function App() {
               {ctfFeedback.text}
             </div>
           </div>
-
         </div>
 
-        {/* NEW THIRD PANEL FULL ROW: Automated Security Audit Simulator Module */}
+        {/* Automated Security Audit Simulator Module */}
         <div style={{ background: "var(--card-bg)", padding: "35px", borderRadius: "24px", border: "1px solid var(--border)", marginTop: "40px", display: "flex", flexDirection: "column", gap: "20px" }}>
           <h3>Automated Security Network Auditor</h3>
           <p className="about-subtitle" style={{ fontSize: "0.9rem" }}>Simulate passive perimeter asset scanning across network vectors to detect infrastructure exposure profiles.</p>
@@ -420,8 +429,8 @@ function App() {
             }}>Initiate Audit Profile</button>
           </div>
 
-                    {/* Column 3: Cryptographic Passphrase Entropy Analyzer */}
-          <div style={{ background: "var(--card-bg)", padding: "35px", borderRadius: "24px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", gap: "20px" }}>
+          {/* Cryptographic Passphrase Entropy Analyzer */}
+          <div style={{ background: "var(--card-bg)", padding: "35px", borderRadius: "24px", border: "1px solid var(--border)", marginTop: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
             <h3>Credential Entropy Analyzer</h3>
             <p className="about-subtitle" style={{ fontSize: "0.9rem" }}>Evaluate authentication string resilience against algorithmic complexity checks and brute-force guessing entropy calculations.</p>
             
@@ -440,14 +449,12 @@ function App() {
                   return;
                 }
 
-                // Calculate basic pool size based on character variety
                 let poolSize = 0;
                 if (/[a-z]/.test(val)) poolSize += 26;
                 if (/[A-Z]/.test(val)) poolSize += 26;
                 if (/[0-9]/.test(val)) poolSize += 10;
                 if (/[^a-zA-Z0-9]/.test(val)) poolSize += 32;
 
-                // Shannon entropy estimation: Length * log2(Pool Size)
                 const entropyBits = Math.floor(val.length * (Math.log(poolSize) / Math.log(2)));
                 metricEl.innerText = `Entropy: ${entropyBits} Bits`;
 
@@ -470,11 +477,8 @@ function App() {
               Awaiting input sequence...
             </div>
           </div>
-
-
         </div>
       </section>
-
 
       {/* Floating Security Assistant Widget */}
       <div className="chat-toggle" onClick={() => setChatOpen(!chatOpen)}>
@@ -526,8 +530,8 @@ function App() {
       <footer>
         <div className="social-links">
           <a href="https://github.com/stheshana07" target="_blank" rel="noreferrer"><i className="fab fa-github"></i></a>
-          <a href="https://tiktok.com/@stheshana07" target="_blank" rel="noreferrer"><i class="fab fa-tiktok"></i></a>
-          <a href="https://za.linkedin.com/in/athabile-dinilanga-744309377" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://tiktok.com/@stheshana07" target="_blank" rel="noreferrer"><i className="fab fa-tiktok"></i></a>
+          <a href="https://za.linkedin.com/in/athabile-dinilanga-744309377" target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
         </div>
         <p style={{ opacity: 0.5, fontSize: "0.85rem" }}>© 2026 Athabile Dinilanga. Engineered for Security & Speed.</p>
       </footer>
