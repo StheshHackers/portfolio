@@ -101,39 +101,6 @@ nav {
     color: var(--electric-blue);
 }
 
-/* Optimized Structural Control Group Wrapper */
-.nav-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Polished Theme Toggle Button Layout Styles */
-.theme-toggle-btn {
-    background: rgba(0, 102, 255, 0.05);
-    border: 1px solid var(--border);
-    font-size: 1.2rem;
-    cursor: pointer;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease;
-    outline: none;
-}
-
-body.dark-mode .theme-toggle-btn {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.theme-toggle-btn:hover {
-    transform: scale(1.08);
-    border-color: var(--electric-blue);
-    background: rgba(0, 102, 255, 0.1);
-}
-
 .menu-btn {
     display: none;
     font-size: 1.5rem;
@@ -322,6 +289,31 @@ body.dark-mode .theme-toggle-btn {
     gap: 8px;
 }
 
+/* --- Interactive Control Elements --- */
+.dark-toggle {
+    position: fixed;
+    top: 85px;
+    right: 20px;
+    z-index: 9999;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: var(--electric-blue);
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.dark-toggle:hover {
+    transform: scale(1.08);
+}
+
 /* --- Security Assistant Widget Layout --- */
 #chat-widget {
     position: fixed;
@@ -484,6 +476,7 @@ footer {
         gap: 40px;
     }
 
+    /* Prevent mobile components from overflowing structural parents */
     body {
         padding-top: 70px;
     }
@@ -492,6 +485,7 @@ footer {
         padding: 15px 5%;
     }
 
+    /* Fluid layout height metrics */
     .hero {
         height: auto;
         min-height: calc(100vh - 70px);
@@ -525,63 +519,56 @@ footer {
     }
 
     /* --- FORM, ACTIONS, & BUTTON RESPONSIVE RECOVERY --- */
+    /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
     .card form,
     .card div,
-    .card [class*="container"],
-    .card [class*="form"],
-    .card [class*="wrapper"] {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin-right: 0 !important;
-        margin-left: 0 !important;
-        gap: 12px !important;
-    }
-
-    .card input,
+    .card input, 
     .card button,
     .card .btn-primary,
-    .card .btn-secondary,
-    .card [type="text"],
-    .card [type="submit"],
+    .card .btn-secondary {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        box-sizing: border-box;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        gap: 10px;
+    }
+
+    /* Ensure specific single components behave as block objects */
+    .card input,
+    .card button,
     .btn-primary, 
     .btn-secondary {
-        display: block !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-        margin: 0 0 15px 0 !important;
-        position: relative !important;
-        right: auto !important;
-        left: auto !important;
-        transform: none !important;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
-    .card input,
-    .card [type="text"] {
-        margin-bottom: 4px !important;
+    /* Orderly space distribution between separated items */
+    .card input {
+        margin-bottom: 12px;
     }
 
-    .card button, 
-    .card .btn-primary,
-    .card [type="submit"] {
-        padding: 12px 20px !important;
-        border-radius: 12px !important;
-        margin-bottom: 0 !important;
+    .btn-primary {
+        margin-bottom: 15px;
     }
 
     .btn-secondary {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
     }
 
+    /* Floating Widget UI Adjustments */
     #chat-widget {
         width: calc(100% - 40px);
         right: 20px;
         bottom: 90px;
+    }
+
+    .dark-toggle {
+        top: auto;
+        bottom: 95px;
+        right: 20px;
     }
 
     .chat-toggle {
@@ -592,7 +579,7 @@ footer {
     }
 }
 
-/* Extra small mobile adjustments */
+/* Extra small mobile adjustments for tiny screen widths */
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 2.2rem;
