@@ -689,7 +689,12 @@ footer {
     box-shadow: 0 0 10px #ffffff88;
     border-radius: 50%;
     padding: 10px;
+    @media (prefers-color-scheme: light){
+        background-color: #00000055;
+    }
 }
+
+
 
 /* Extra small mobile adjustments for tiny screen widths */
 @media (max-width: 480px) {
