@@ -2,6 +2,7 @@
     --deep-navy: #0A0F1C;
     --text-main: #1F2937;
     --text-muted: #4B5563;
+    /* High contrast gray for light mode */
     --border: rgba(0, 102, 255, 0.1);
     --card-bg: #FFFFFF;
     --ghost-white: #F8F8FF;
@@ -11,11 +12,14 @@
     --glass: rgba(255, 255, 255, 0.9);
 }
 
+/* Fixed: Seamless dark mode property overrides */
 body.dark-mode {
     --ghost-white: #0f172a;
     --deep-navy: #f8fafc;
     --text-main: #e2e8f0;
+    /* Crisp white-gray for clear reading */
     --text-muted: #94a3b8;
+    /* Enhanced visibility gray for dark mode descriptions */
     --glass: rgba(15, 23, 42, 0.9);
     --border: rgba(255, 255, 255, 0.15);
     --card-bg: #1e293b;
@@ -40,6 +44,7 @@ body {
     padding-top: 80px;
 }
 
+/* --- Fixed High-Contrast Subtitles --- */
 body.dark-mode .about-subtitle,
 body.dark-mode .contact-subtitle,
 body.dark-mode .hero p,
@@ -51,6 +56,7 @@ body.dark-mode .about-visual p {
     color: #cbd5e1 !important;
 }
 
+/* --- Navigation Header --- */
 nav {
     padding: 20px 8%;
     display: flex;
@@ -95,37 +101,6 @@ nav {
     color: var(--electric-blue);
 }
 
-.nav-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.theme-toggle-btn {
-    background: rgba(0, 102, 255, 0.05);
-    border: 1px solid var(--border);
-    font-size: 1.2rem;
-    cursor: pointer;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease;
-    outline: none;
-}
-
-body.dark-mode .theme-toggle-btn {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.theme-toggle-btn:hover {
-    transform: scale(1.08);
-    border-color: var(--electric-blue);
-    background: rgba(0, 102, 255, 0.1);
-}
-
 .menu-btn {
     display: none;
     font-size: 1.5rem;
@@ -133,6 +108,7 @@ body.dark-mode .theme-toggle-btn {
     color: var(--electric-blue);
 }
 
+/* --- Hero Layout --- */
 .hero {
     height: calc(100vh - 80px);
     display: flex;
@@ -169,6 +145,7 @@ body.dark-mode .theme-toggle-btn {
     font-size: 0.85rem;
 }
 
+/* --- Buttons --- */
 .btn-primary {
     background: var(--electric-blue);
     color: white;
@@ -202,6 +179,7 @@ body.dark-mode .theme-toggle-btn {
     background: var(--border);
 }
 
+/* --- About Section --- */
 #about {
     padding: 120px 10%;
     background: var(--card-bg);
@@ -250,6 +228,7 @@ body.dark-mode .theme-toggle-btn {
     transition: background 0.2s ease, color 0.2s ease;
 }
 
+/* --- Production Cards --- */
 #projects {
     padding: 100px 10%;
 }
@@ -310,6 +289,33 @@ body.dark-mode .theme-toggle-btn {
     gap: 8px;
 }
 
+/* --- Interactive Control Elements --- */
+.dark-toggle {
+    position: fixed;
+    top: 85px;
+    right: 20px;
+    z-index: 9999;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: var(--electric-blue);
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), background-color 0.3s ease;
+}
+
+.dark-toggle:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 112, 255, 0.4);
+}
+
+/* --- Security Assistant Widget Layout --- */
 #chat-widget {
     position: fixed;
     bottom: 100px;
@@ -401,6 +407,7 @@ body.dark-mode .bot-msg {
     border: 1px solid var(--border);
 }
 
+/* --- Mobile Sidebar View --- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -428,6 +435,7 @@ body.dark-mode .bot-msg {
     font-weight: 700;
 }
 
+/* --- Footer --- */
 footer {
     padding: 80px 10%;
     background: #0A0F1C;
@@ -454,6 +462,7 @@ footer {
     color: var(--electric-blue);
 }
 
+/* --- Combined & Cleaned Tablet & Mobile Layouts --- */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
@@ -468,6 +477,7 @@ footer {
         gap: 40px;
     }
 
+    /* Prevent mobile components from overflowing structural parents */
     body {
         padding-top: 70px;
     }
@@ -476,6 +486,7 @@ footer {
         padding: 15px 5%;
     }
 
+    /* Fluid layout height metrics */
     .hero {
         height: auto;
         min-height: calc(100vh - 70px);
@@ -508,6 +519,8 @@ footer {
         padding: 25px;
     }
 
+    /* --- FORM, ACTIONS, & BUTTON RESPONSIVE RECOVERY --- */
+    /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
     .card form,
     .card div,
     .card [class*="container"],
@@ -523,6 +536,7 @@ footer {
         gap: 12px !important;
     }
 
+    /* Ensure specific single components behave as block objects and constraint max-width */
     .card input,
     .card button,
     .card .btn-primary,
@@ -561,10 +575,18 @@ footer {
         margin-bottom: 0 !important;
     }
 
+    /* Floating Widget UI Adjustments */
     #chat-widget {
         width: calc(100% - 40px);
         right: 20px;
         bottom: 90px;
+        max-width: 100%;
+    }
+
+    .dark-toggle {
+        top: auto;
+        bottom: 95px;
+        right: 20px;
     }
 
     .chat-toggle {
@@ -575,6 +597,7 @@ footer {
     }
 }
 
+/* Extra small mobile adjustments for tiny screen widths */
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 2.2rem;
