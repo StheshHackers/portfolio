@@ -461,6 +461,7 @@ footer {
     color: var(--electric-blue);
 }
 
+/* --- Combined & Cleaned Tablet & Mobile Layouts --- */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
@@ -475,64 +476,16 @@ footer {
         gap: 40px;
     }
 
-    #chat-widget {
-        width: calc(100% - 40px);
-        right: 20px;
-        bottom: 90px;
-    }
-}
-
-
-@media (max-width: 992px) {
-
-    /* --- FORM & ACTION BUTTON FIXES FOR CARDS --- */
-    /* Assuming your card contains a form or a container for the input and button */
-    .card input, 
-    .card button,
-    .card .btn-primary,
-    .card .btn-secondary {
-        display: block;
-        width: 100% !important; /* Force them to take up the full available width */
-        margin-right: 0 !important;
-        margin-left: 0 !important;
-    }
-
-    .card input {
-        margin-bottom: 12px; /* Add clean breathing room below the text field before the button hits */
-    }
-    
-    /* Existing overrides */
-    .nav-links {
-        display: none;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    #chat-widget {
-        width: calc(100% - 40px);
-        right: 20px;
-        bottom: 90px;
-    }
-
-    /* --- NEW MOBILE FIXES --- */
-    
-    /* 1. Prevent layout clipping and horizontal scrolling */
+    /* Prevent mobile components from overflowing structural parents */
     body {
-        padding-top: 70px; /* Slimmer header space on mobile */
+        padding-top: 70px;
     }
 
     nav {
         padding: 15px 5%;
     }
 
-    /* 2. Hero Section: Change fixed height to fluid padding to handle long text wrap */
+    /* Fluid layout height metrics */
     .hero {
         height: auto;
         min-height: calc(100vh - 70px);
@@ -544,7 +497,6 @@ footer {
         margin-bottom: 30px;
     }
 
-    /* 3. Section Padding: Reduce massive padding blocks to fit small screens */
     #about, #projects {
         padding: 60px 5%;
     }
@@ -557,7 +509,6 @@ footer {
         padding: 25px 15px;
     }
 
-    /* 4. Project Grids: Fluid structural sizing */
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
@@ -567,10 +518,56 @@ footer {
         padding: 25px;
     }
 
-    /* 5. Widgets and UI Buttons positioning */
+    /* --- FORM, ACTIONS, & BUTTON RESPONSIVE RECOVERY --- */
+    /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
+    .card form,
+    .card div,
+    .card input, 
+    .card button,
+    .card .btn-primary,
+    .card .btn-secondary {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        box-sizing: border-box;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        gap: 10px;
+    }
+
+    /* Ensure specific single components behave as block objects */
+    .card input,
+    .card button,
+    .btn-primary, 
+    .btn-secondary {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Orderly space distribution between separated items */
+    .card input {
+        margin-bottom: 12px;
+    }
+
+    .btn-primary {
+        margin-bottom: 15px;
+    }
+
+    .btn-secondary {
+        margin-bottom: 0;
+    }
+
+    /* Floating Widget UI Adjustments */
+    #chat-widget {
+        width: calc(100% - 40px);
+        right: 20px;
+        bottom: 90px;
+    }
+
     .dark-toggle {
         top: auto;
-        bottom: 95px; /* Safely moves it next to the chat toggle without overlapping layout code */
+        bottom: 95px;
         right: 20px;
     }
 
@@ -580,21 +577,6 @@ footer {
         padding: 14px 24px;
         font-size: 0.9rem;
     }
-
-    /* --- BUTTON RESPONSIVE RECOVERY --- */
-    .btn-primary, 
-    .btn-secondary {
-        display: block;      /* Force buttons to occupy their own lines */
-        width: 100%;         /* Expand to full touch-friendly width */
-        text-align: center;  /* Center the button text nicely */
-        margin-bottom: 15px; /* Create a safety barrier so they never overlap */
-    }
-
-    /* Remove the bottom margin from the last button inside a group */
-    .btn-secondary {
-        margin-bottom: 0;
-    }
-    
 }
 
 /* Extra small mobile adjustments for tiny screen widths */
@@ -604,6 +586,6 @@ footer {
     }
     
     .sidebar {
-        width: 100%; /* Spans full screen on narrow phones when pulled active */
+        width: 100%;
     }
 }
