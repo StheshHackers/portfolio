@@ -481,3 +481,97 @@ footer {
         bottom: 90px;
     }
 }
+
+
+@media (max-width: 992px) {
+    /* Existing overrides */
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    #chat-widget {
+        width: calc(100% - 40px);
+        right: 20px;
+        bottom: 90px;
+    }
+
+    /* --- NEW MOBILE FIXES --- */
+    
+    /* 1. Prevent layout clipping and horizontal scrolling */
+    body {
+        padding-top: 70px; /* Slimmer header space on mobile */
+    }
+
+    nav {
+        padding: 15px 5%;
+    }
+
+    /* 2. Hero Section: Change fixed height to fluid padding to handle long text wrap */
+    .hero {
+        height: auto;
+        min-height: calc(100vh - 70px);
+        padding: 60px 5%;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    /* 3. Section Padding: Reduce massive padding blocks to fit small screens */
+    #about, #projects {
+        padding: 60px 5%;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-visual {
+        padding: 25px 15px;
+    }
+
+    /* 4. Project Grids: Fluid structural sizing */
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    /* 5. Widgets and UI Buttons positioning */
+    .dark-toggle {
+        top: auto;
+        bottom: 95px; /* Safely moves it next to the chat toggle without overlapping layout code */
+        right: 20px;
+    }
+
+    .chat-toggle {
+        bottom: 20px;
+        right: 20px;
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small mobile adjustments for tiny screen widths */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .sidebar {
+        width: 100%; /* Spans full screen on narrow phones when pulled active */
+    }
+}
