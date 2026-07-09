@@ -522,57 +522,40 @@ footer {
     /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
     .card form,
     .card div,
-    .card [class*="container"],
-    .card [class*="form"],
-    .card [class*="wrapper"] {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
+    .card input, 
+    .card button,
+    .card .btn-primary,
+    .card .btn-secondary {
+        display: flex;
+        flex-direction: column;
         width: 100% !important;
-        box-sizing: border-box !important;
+        box-sizing: border-box;
         margin-right: 0 !important;
         margin-left: 0 !important;
-        gap: 12px !important;
+        gap: 10px;
     }
 
     /* Ensure specific single components behave as block objects */
     .card input,
     .card button,
-    .card .btn-primary,
-    .card .btn-secondary,
-    .card [type="text"],
-    .card [type="submit"],
     .btn-primary, 
     .btn-secondary {
-        display: block !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-        margin: 0 0 15px 0 !important;
-        position: relative !important;
-        right: auto !important;
-        left: auto !important;
-        transform: none !important;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
     /* Orderly space distribution between separated items */
-    .card input,
-    .card [type="text"] {
-        margin-bottom: 4px !important;
+    .card input {
+        margin-bottom: 12px;
     }
 
-    .card button, 
-    .card .btn-primary,
-    .card [type="submit"] {
-        padding: 12px 20px !important;
-        border-radius: 12px !important;
-        margin-bottom: 0 !important;
+    .btn-primary {
+        margin-bottom: 15px;
     }
 
     .btn-secondary {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
     }
 
     /* Floating Widget UI Adjustments */
