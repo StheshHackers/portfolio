@@ -289,35 +289,106 @@ nav {
     gap: 8px;
 }
 
+/* --- NEW: Certifications Section Layout Placeholders --- */
+#certifications {
+    padding: 100px 10%;
+    background: var(--ghost-white);
+    transition: background 0.3s ease;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+.cert-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--electric-blue);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+}
+
+.cert-badge {
+    align-self: flex-start;
+    background: rgba(0, 102, 255, 0.08);
+    color: var(--electric-blue);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cert-card h3 {
+    font-size: 1.2rem;
+    color: var(--deep-navy);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.cert-issuer {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cert-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: auto;
+    opacity: 0.8;
+}
+
 /* --- Interactive Control Elements --- */
 .dark-toggle {
     position: fixed;
-    top: 85px;
-    right: 20px;
-    z-index: 9999;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
+    top: 20px;
+    right: 8%;
+    z-index: 1001; /* Layer button precisely inside navigation bar safely */
+    width: 42px;
+    height: 42px;
+    border-radius: 12px; /* Smooth card matching radius */
     border: 1px solid var(--border);
     cursor: pointer;
-    background: var(--card-bg);
+    background: rgba(0, 102, 255, 0.05);
     color: var(--electric-blue);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, color 0.3s, box-shadow 0.2s;
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
 }
 
 body.dark-mode .dark-toggle {
-    background: var(--electric-blue);
-    color: white;
-    box-shadow: 0 8px 24px rgba(0, 112, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: #f1f5f9;
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 .dark-toggle:hover {
-    transform: scale(1.12) translateY(-2px);
+    transform: scale(1.06);
+    border-color: var(--electric-blue);
+    background: rgba(0, 102, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 112, 255, 0.15);
 }
 
 /* --- Security Assistant Widget Layout --- */
@@ -475,6 +546,8 @@ footer {
 
     .menu-btn {
         display: block;
+        margin-left: auto;
+        margin-right: 20px;
     }
 
     .about-content {
@@ -501,7 +574,6 @@ footer {
         margin-bottom: 30px;
     }
 
-    /* Fixed Layout wrapping values */
     #about, #projects, #toolkit, #certifications {
         padding: 60px 5% !important;
     }
@@ -514,17 +586,17 @@ footer {
         padding: 25px 15px;
     }
 
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+    .grid, .certifications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+        gap: 20px !important;
+        width: 100% !important;
     }
 
-    .card {
+    .card, .cert-card {
         padding: 25px;
     }
 
     /* --- GLOBAL RESPONSIVE FIX FOR INPUT GROUPS & INLINE ACTIONS --- */
-    /* Target inputs, selects, buttons and form wrappers layout-wide to stack cleanly and drop text clipping */
     #toolkit div, 
     #toolkit section,
     .card form,
@@ -539,12 +611,10 @@ footer {
         gap: 12px !important;
     }
 
-    /* Clear dangerous parent alignment styles forcing structural overflows */
     #toolkit > div {
         display: flex !important;
     }
 
-    /* Reset elements globally inside structured interactive modules */
     #toolkit input,
     #toolkit select,
     #toolkit button,
@@ -574,9 +644,11 @@ footer {
     }
 
     .dark-toggle {
-        top: auto;
-        bottom: 95px;
-        right: 15px;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        margin: 0 !important;
+        z-index: 1001 !important;
     }
 
     .chat-toggle {
@@ -595,10 +667,5 @@ footer {
     
     .sidebar {
         width: 100%;
-    }
-    
-    .dark-toggle {
-        right: 10px;
-        bottom: 90px;
     }
 }
