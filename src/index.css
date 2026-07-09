@@ -461,7 +461,7 @@ footer {
     color: var(--electric-blue);
 }
 
-/* --- Unified Tablet & Mobile Interface Overrides --- */
+/* --- Combined & Cleaned Tablet & Mobile Layouts --- */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
@@ -476,6 +476,7 @@ footer {
         gap: 40px;
     }
 
+    /* Prevent mobile components from overflowing structural parents */
     body {
         padding-top: 70px;
     }
@@ -484,6 +485,7 @@ footer {
         padding: 15px 5%;
     }
 
+    /* Fluid layout height metrics */
     .hero {
         height: auto;
         min-height: calc(100vh - 70px);
@@ -516,8 +518,8 @@ footer {
         padding: 25px;
     }
 
-    /* --- APPLICATION INPUT FORMS & UTILITY CARDS ALIGNMENT --- */
-    /* Target form-rows, layout divisions, forms, and custom wrappers within mini-apps */
+    /* --- FORM, ACTIONS, & BUTTON RESPONSIVE RECOVERY --- */
+    /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
     .card form,
     .card div,
     .card [class*="container"],
@@ -533,8 +535,8 @@ footer {
         gap: 12px !important;
     }
 
-    /* Force all form elements and action buttons inside cards to stack full width */
-    .card input, 
+    /* Ensure specific single components behave as block objects */
+    .card input,
     .card button,
     .card .btn-primary,
     .card .btn-secondary,
@@ -555,7 +557,7 @@ footer {
         transform: none !important;
     }
 
-    /* Padding & dynamic asset spacing tweaks inside interactive utilities */
+    /* Orderly space distribution between separated items */
     .card input,
     .card [type="text"] {
         margin-bottom: 4px !important;
@@ -573,7 +575,7 @@ footer {
         margin-bottom: 0 !important;
     }
 
-    /* Sticky/Floating Interface Widgets Layout */
+    /* Floating Widget UI Adjustments */
     #chat-widget {
         width: calc(100% - 40px);
         right: 20px;
