@@ -684,14 +684,18 @@ footer {
 }
 
 .theme-toggle-btn{
-    background-color: #ffffff00;
     border: none;
-    box-shadow: 0 0 10px #ffffff88;
     border-radius: 50%;
     padding: 10px;
+
+    @media (prefers-color-scheme: dark){    
+        box-shadow: 0 0 10px #0000ff88;
+        background-color: #ffffff00;
+    }
+    
     @media (prefers-color-scheme: light){
         background-color: #00000055;
-        box-shadow: 0 0 10px #00000088;
+        box-shadow: 0 0 10px #0000ff88;
     }
 }
 
