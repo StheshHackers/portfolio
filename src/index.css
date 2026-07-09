@@ -683,6 +683,11 @@ footer {
     }
 }
 
+.theme-toggle-btn{
+    border-radius: 50%;
+    padding: 10px;
+}
+
 /* Extra small mobile adjustments for tiny screen widths */
 @media (max-width: 480px) {
     .hero h1 {
