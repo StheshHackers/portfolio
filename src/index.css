@@ -2,7 +2,6 @@
     --deep-navy: #0A0F1C;
     --text-main: #1F2937;
     --text-muted: #4B5563;
-    /* High contrast gray for light mode */
     --border: rgba(0, 102, 255, 0.1);
     --card-bg: #FFFFFF;
     --ghost-white: #F8F8FF;
@@ -12,14 +11,11 @@
     --glass: rgba(255, 255, 255, 0.9);
 }
 
-/* Fixed: Seamless dark mode property overrides */
 body.dark-mode {
     --ghost-white: #0f172a;
     --deep-navy: #f8fafc;
     --text-main: #e2e8f0;
-    /* Crisp white-gray for clear reading */
     --text-muted: #94a3b8;
-    /* Enhanced visibility gray for dark mode descriptions */
     --glass: rgba(15, 23, 42, 0.9);
     --border: rgba(255, 255, 255, 0.15);
     --card-bg: #1e293b;
@@ -44,7 +40,6 @@ body {
     padding-top: 80px;
 }
 
-/* --- Fixed High-Contrast Subtitles --- */
 body.dark-mode .about-subtitle,
 body.dark-mode .contact-subtitle,
 body.dark-mode .hero p,
@@ -56,7 +51,6 @@ body.dark-mode .about-visual p {
     color: #cbd5e1 !important;
 }
 
-/* --- Navigation Header --- */
 nav {
     padding: 20px 8%;
     display: flex;
@@ -101,6 +95,37 @@ nav {
     color: var(--electric-blue);
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-toggle-btn {
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid var(--border);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease;
+    outline: none;
+}
+
+body.dark-mode .theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.08);
+    border-color: var(--electric-blue);
+    background: rgba(0, 102, 255, 0.1);
+}
+
 .menu-btn {
     display: none;
     font-size: 1.5rem;
@@ -108,7 +133,6 @@ nav {
     color: var(--electric-blue);
 }
 
-/* --- Hero Layout --- */
 .hero {
     height: calc(100vh - 80px);
     display: flex;
@@ -145,7 +169,6 @@ nav {
     font-size: 0.85rem;
 }
 
-/* --- Buttons --- */
 .btn-primary {
     background: var(--electric-blue);
     color: white;
@@ -179,7 +202,6 @@ nav {
     background: var(--border);
 }
 
-/* --- About Section --- */
 #about {
     padding: 120px 10%;
     background: var(--card-bg);
@@ -228,7 +250,6 @@ nav {
     transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* --- Production Cards --- */
 #projects {
     padding: 100px 10%;
 }
@@ -289,32 +310,6 @@ nav {
     gap: 8px;
 }
 
-/* --- Interactive Control Elements --- */
-.dark-toggle {
-    position: fixed;
-    top: 85px;
-    right: 20px;
-    z-index: 9999;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background: var(--electric-blue);
-    color: white;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.dark-toggle:hover {
-    transform: scale(1.08);
-}
-
-/* --- Security Assistant Widget Layout --- */
 #chat-widget {
     position: fixed;
     bottom: 100px;
@@ -406,7 +401,6 @@ body.dark-mode .bot-msg {
     border: 1px solid var(--border);
 }
 
-/* --- Mobile Sidebar View --- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -434,7 +428,6 @@ body.dark-mode .bot-msg {
     font-weight: 700;
 }
 
-/* --- Footer --- */
 footer {
     padding: 80px 10%;
     background: #0A0F1C;
@@ -461,7 +454,6 @@ footer {
     color: var(--electric-blue);
 }
 
-/* --- Combined & Cleaned Tablet & Mobile Layouts --- */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
@@ -476,7 +468,6 @@ footer {
         gap: 40px;
     }
 
-    /* Prevent mobile components from overflowing structural parents */
     body {
         padding-top: 70px;
     }
@@ -485,7 +476,6 @@ footer {
         padding: 15px 5%;
     }
 
-    /* Fluid layout height metrics */
     .hero {
         height: auto;
         min-height: calc(100vh - 70px);
@@ -518,57 +508,63 @@ footer {
         padding: 25px;
     }
 
-    /* --- FORM, ACTIONS, & BUTTON RESPONSIVE RECOVERY --- */
-    /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
     .card form,
     .card div,
-    .card input, 
-    .card button,
-    .card .btn-primary,
-    .card .btn-secondary {
-        display: flex;
-        flex-direction: column;
+    .card [class*="container"],
+    .card [class*="form"],
+    .card [class*="wrapper"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
         width: 100% !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         margin-right: 0 !important;
         margin-left: 0 !important;
-        gap: 10px;
+        gap: 12px !important;
     }
 
-    /* Ensure specific single components behave as block objects */
     .card input,
     .card button,
+    .card .btn-primary,
+    .card .btn-secondary,
+    .card [type="text"],
+    .card [type="submit"],
     .btn-primary, 
     .btn-secondary {
-        display: block;
-        width: 100%;
-        text-align: center;
+        display: block !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin: 0 0 15px 0 !important;
+        position: relative !important;
+        right: auto !important;
+        left: auto !important;
+        transform: none !important;
     }
 
-    /* Orderly space distribution between separated items */
-    .card input {
-        margin-bottom: 12px;
+    .card input,
+    .card [type="text"] {
+        margin-bottom: 4px !important;
     }
 
-    .btn-primary {
-        margin-bottom: 15px;
+    .card button, 
+    .card .btn-primary,
+    .card [type="submit"] {
+        padding: 12px 20px !important;
+        border-radius: 12px !important;
+        margin-bottom: 0 !important;
     }
 
     .btn-secondary {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
     }
 
-    /* Floating Widget UI Adjustments */
     #chat-widget {
         width: calc(100% - 40px);
         right: 20px;
         bottom: 90px;
-    }
-
-    .dark-toggle {
-        top: auto;
-        bottom: 95px;
-        right: 20px;
     }
 
     .chat-toggle {
@@ -579,7 +575,6 @@ footer {
     }
 }
 
-/* Extra small mobile adjustments for tiny screen widths */
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 2.2rem;
