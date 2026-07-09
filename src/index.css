@@ -484,6 +484,23 @@ footer {
 
 
 @media (max-width: 992px) {
+
+    /* --- FORM & ACTION BUTTON FIXES FOR CARDS --- */
+    /* Assuming your card contains a form or a container for the input and button */
+    .card input, 
+    .card button,
+    .card .btn-primary,
+    .card .btn-secondary {
+        display: block;
+        width: 100% !important; /* Force them to take up the full available width */
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .card input {
+        margin-bottom: 12px; /* Add clean breathing room below the text field before the button hits */
+    }
+    
     /* Existing overrides */
     .nav-links {
         display: none;
