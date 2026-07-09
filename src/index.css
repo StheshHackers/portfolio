@@ -295,24 +295,29 @@ nav {
     top: 85px;
     right: 20px;
     z-index: 9999;
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    border: none;
+    border: 1px solid var(--border);
     cursor: pointer;
-    background: var(--electric-blue);
-    color: white;
-    font-size: 1.2rem;
+    background: var(--card-bg);
+    color: var(--electric-blue);
+    font-size: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1), background-color 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, color 0.3s, box-shadow 0.2s;
+}
+
+body.dark-mode .dark-toggle {
+    background: var(--electric-blue);
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 112, 255, 0.3);
 }
 
 .dark-toggle:hover {
-    transform: scale(1.1) translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 112, 255, 0.4);
+    transform: scale(1.12) translateY(-2px);
 }
 
 /* --- Security Assistant Widget Layout --- */
@@ -477,7 +482,6 @@ footer {
         gap: 40px;
     }
 
-    /* Prevent mobile components from overflowing structural parents */
     body {
         padding-top: 70px;
     }
@@ -486,7 +490,6 @@ footer {
         padding: 15px 5%;
     }
 
-    /* Fluid layout height metrics */
     .hero {
         height: auto;
         min-height: calc(100vh - 70px);
@@ -498,8 +501,9 @@ footer {
         margin-bottom: 30px;
     }
 
-    #about, #projects {
-        padding: 60px 5%;
+    /* Fixed Layout wrapping values */
+    #about, #projects, #toolkit, #certifications {
+        padding: 60px 5% !important;
     }
 
     .about-text h2 {
@@ -519,56 +523,43 @@ footer {
         padding: 25px;
     }
 
-    /* --- FORM, ACTIONS, & BUTTON RESPONSIVE RECOVERY --- */
-    /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
+    /* --- GLOBAL RESPONSIVE FIX FOR INPUT GROUPS & INLINE ACTIONS --- */
+    /* Target inputs, selects, buttons and form wrappers layout-wide to stack cleanly and drop text clipping */
+    #toolkit div, 
+    #toolkit section,
     .card form,
     .card div,
-    .card [class*="container"],
-    .card [class*="form"],
-    .card [class*="wrapper"] {
-        display: flex !important;
+    div[style*="display: flex"],
+    div[style*="display: flex"] + div {
         flex-direction: column !important;
         align-items: stretch !important;
         width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
-        margin-right: 0 !important;
-        margin-left: 0 !important;
         gap: 12px !important;
     }
 
-    /* Ensure specific single components behave as block objects and constraint max-width */
+    /* Clear dangerous parent alignment styles forcing structural overflows */
+    #toolkit > div {
+        display: flex !important;
+    }
+
+    /* Reset elements globally inside structured interactive modules */
+    #toolkit input,
+    #toolkit select,
+    #toolkit button,
     .card input,
     .card button,
-    .card .btn-primary,
-    .card .btn-secondary,
-    .card [type="text"],
-    .card [type="submit"],
     .btn-primary, 
-    .btn-secondary {
+    .btn-secondary,
+    #scan-target {
         display: block !important;
         width: 100% !important;
         min-width: 100% !important;
         max-width: 100% !important;
         text-align: center !important;
         box-sizing: border-box !important;
-        margin: 0 0 15px 0 !important;
-        position: relative !important;
-        right: auto !important;
-        left: auto !important;
-        transform: none !important;
-    }
-
-    .card input,
-    .card [type="text"] {
-        margin-bottom: 4px !important;
-    }
-
-    .card button, 
-    .card .btn-primary,
-    .card [type="submit"] {
-        padding: 12px 20px !important;
-        border-radius: 12px !important;
-        margin-bottom: 0 !important;
+        margin: 0 0 5px 0 !important;
     }
 
     .btn-secondary {
@@ -580,13 +571,12 @@ footer {
         width: calc(100% - 40px);
         right: 20px;
         bottom: 90px;
-        max-width: 100%;
     }
 
     .dark-toggle {
         top: auto;
         bottom: 95px;
-        right: 20px;
+        right: 15px;
     }
 
     .chat-toggle {
@@ -605,5 +595,10 @@ footer {
     
     .sidebar {
         width: 100%;
+    }
+    
+    .dark-toggle {
+        right: 10px;
+        bottom: 90px;
     }
 }
