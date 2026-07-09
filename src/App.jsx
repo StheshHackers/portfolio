@@ -15,11 +15,11 @@ function App() {
   const [cryptoOutput, setCryptoOutput] = useState("");
   const [cryptoMode, setCryptoMode] = useState("base64-encode");
 
-  // NEW: CTF Lab State
+  // CTF Lab State
   const [ctfInput, setCtfInput] = useState("");
   const [ctfFeedback, setCtfFeedback] = useState({ text: "Status: System idling. Vulnerable query parameter found at ?admin=false. Attempt manipulation to access root account.", success: null });
 
-  // NEW: Incident Log Feed Ticker State
+  // Incident Log Feed Ticker State
   const [logs, setLogs] = useState([
     " [INFO] IDS Initialization sequence activated...",
     " [SUCCESS] Firewall rules synchronized natively on interface eth0."
@@ -119,7 +119,7 @@ function App() {
   };
 
   const botResponses = {
-    "help": "<b>Authorized Commands:</b><br>'status' - System check<br>'skills' - Technical armory<br>'services' - Professional offerings<br>'education' - Academic background<br>'security' - Pentesting tools<br>'contact' - Communication channels",
+    "help": "<b>Authorized Commands:</b><br>'status' - System check<br>'skills' - Technical armory<br>'skills' - Technical armory<br>'services' - Professional offerings<br>'education' - Academic background<br>'security' - Pentesting tools<br>'contact' - Communication channels",
     "status": "All systems operational. Firewall active. Current lead: Athabile Dinilanga.",
     "skills": "Primary stack: JavaScript, Python, Rust. Security: Kali Linux, OWASP auditing.",
     "services": "1. Full-stack Web Development<br>2. Penetration Testing<br>3. API Infrastructure Security.",
@@ -163,35 +163,29 @@ function App() {
       {/* Navigation */}
       <nav>
         <div className="logo">ATHABILE <span>DINILANGA</span></div>
+        
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#toolkit">Security Suite</a>
           <a href="#contact">Contact</a>
-          
-          {/* Inline Navbar Mode Toggle Button with Emojis */}
+          <a href="mailto:dinilangaathabile@gmail.com" id="hireme" className="btn-primary" style={{ padding: "10px 20px", fontSize: "0.8rem" }}>Hire Me</a>
+        </div>
+
+        {/* Action Container for Layout Consistency */}
+        <div className="nav-controls">
           <button 
             onClick={() => setDarkMode(!darkMode)} 
+            className="theme-toggle-btn"
             aria-label="Toggle Dark Mode"
-            style={{
-              background: "transparent",
-              border: "none",
-              fontSize: "1.3rem",
-              cursor: "pointer",
-              padding: "5px 10px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
           >
             {darkMode ? "☀️" : "🌙"}
           </button>
-
-          <a href="mailto:dinilangaathabile@gmail.com" id="hireme" className="btn-primary" style={{ padding: "10px 20px", fontSize: "0.8rem" }}>Hire Me</a>
-        </div>
-        <div className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
-          <i className="fas fa-bars"></i>
+          
+          <div className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <i className="fas fa-bars"></i>
+          </div>
         </div>
       </nav>
 
@@ -469,7 +463,7 @@ function App() {
               style={{ padding: "12px", borderRadius: "10px", background: "var(--ghost-white)", color: "var(--text-main)", border: "1px solid var(--border)" }}
             />
 
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", fontWeight: "bold" }}>
+            <div style={{ display: "flex", justifycontent: "space-between", fontSize: "0.85rem", fontWeight: "bold" }}>
               <span id="entropy-metric" style={{ color: "var(--electric-blue)" }}>Bits: 0</span>
             </div>
 
