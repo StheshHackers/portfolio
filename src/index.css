@@ -522,40 +522,57 @@ footer {
     /* Force form groups, inner wrapper structural divs, and card inputs/buttons to cascade cleanly */
     .card form,
     .card div,
-    .card input, 
-    .card button,
-    .card .btn-primary,
-    .card .btn-secondary {
-        display: flex;
-        flex-direction: column;
+    .card [class*="container"],
+    .card [class*="form"],
+    .card [class*="wrapper"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
         width: 100% !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         margin-right: 0 !important;
         margin-left: 0 !important;
-        gap: 10px;
+        gap: 12px !important;
     }
 
     /* Ensure specific single components behave as block objects */
     .card input,
     .card button,
+    .card .btn-primary,
+    .card .btn-secondary,
+    .card [type="text"],
+    .card [type="submit"],
     .btn-primary, 
     .btn-secondary {
-        display: block;
-        width: 100%;
-        text-align: center;
+        display: block !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin: 0 0 15px 0 !important;
+        position: relative !important;
+        right: auto !important;
+        left: auto !important;
+        transform: none !important;
     }
 
     /* Orderly space distribution between separated items */
-    .card input {
-        margin-bottom: 12px;
+    .card input,
+    .card [type="text"] {
+        margin-bottom: 4px !important;
     }
 
-    .btn-primary {
-        margin-bottom: 15px;
+    .card button, 
+    .card .btn-primary,
+    .card [type="submit"] {
+        padding: 12px 20px !important;
+        border-radius: 12px !important;
+        margin-bottom: 0 !important;
     }
 
     .btn-secondary {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
     }
 
     /* Floating Widget UI Adjustments */
