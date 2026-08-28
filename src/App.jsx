@@ -517,6 +517,8 @@ function App() {
         <div style={{ display: "inline-flex", flexDirection: "column", gap: "10px", fontWeight: 600 }} className="contact-info">
           <span><i className="fas fa-envelope" style={{ color: "var(--electric-blue)" }}></i> dinilangaathabile@gmail.com</span>
           <span><i className="fab fa-whatsapp" style={{ color: "var(--electric-blue)" }}></i> +27 66 085 1108</span>
+          <span><i className="fab fa-linkedin" style={{ color: "var(--electric-blue)" }}></i> Athabile Dinilanga</span>
+           <span><i className="fab fa-tiktok" style={{ color: "var(--electric-blue)" }}></i> @stheshana07</span>
         </div>
       </section>
 
