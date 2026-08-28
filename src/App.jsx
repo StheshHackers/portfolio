@@ -528,6 +528,7 @@ function App() {
           <a href="https://za.linkedin.com/in/athabile-dinilanga-744309377" target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
         </div>
         <p style={{ opacity: 0.5, fontSize: "0.85rem" }}>© 2026 Athabile Dinilanga. Engineered for Security & Speed.</p>
+        <p style={{ opacity: 0.5, fontSize: "0.85rem" }}>Special thanks to my girlfriend, Azile Manqate, for reviewing my work.</p>
       </footer>
     </div>
   );
