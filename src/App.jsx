@@ -514,12 +514,6 @@ function App() {
       <section id="contact" style={{ padding: "120px 10%", textAlign: "center" }}>
         <h2 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>Ready to collaborate?</h2>
         <p className="contact-subtitle" style={{ marginBottom: "40px" }}>Currently accepting freelance projects and security consultations.</p>
-        <div style={{ display: "inline-flex", flexDirection: "column", gap: "10px", fontWeight: 600 }} className="contact-info">
-          <span><i className="fas fa-envelope" style={{ color: "var(--electric-blue)" }}></i> dinilangaathabile@gmail.com</span>
-          <span><i className="fab fa-whatsapp" style={{ color: "var(--electric-blue)" }}></i> +27 66 085 1108</span>
-          <span><i className="fab fa-linkedin" style={{ color: "var(--electric-blue)" }}></i>Athabile Dinilanga</span>
-          <span><i className="fab fa-tiktok" style={{ color: "var(--electric-blue)" }}></i> @stheshana07</span>
-        </div>
       </section>
 
       {/* Footer Layout */}
