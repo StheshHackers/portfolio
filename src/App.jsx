@@ -517,8 +517,8 @@ function App() {
         <div style={{ display: "inline-flex", flexDirection: "column", gap: "10px", fontWeight: 600 }} className="contact-info">
           <span><i className="fas fa-envelope" style={{ color: "var(--electric-blue)" }}></i> dinilangaathabile@gmail.com</span>
           <span><i className="fab fa-whatsapp" style={{ color: "var(--electric-blue)" }}></i> +27 66 085 1108</span>
-          <span><i className="fab fa-linkedin" style={{ color: "var(--electric-blue)" }}></i> Athabile Dinilanga</span>
-           <span><i className="fab fa-tiktok" style={{ color: "var(--electric-blue)" }}></i> @stheshana07</span>
+          <span><i className="fab fa-linkedin" style={{ color: "var(--electric-blue)" }}></i>Athabile Dinilanga</span>
+          <span><i className="fab fa-tiktok" style={{ color: "var(--electric-blue)" }}></i> @stheshana07</span>
         </div>
       </section>
 
@@ -526,8 +526,19 @@ function App() {
       <footer>
         <div className="social-links">
           <a href="https://github.com/stheshana07" target="_blank" rel="noreferrer"><i className="fab fa-github"></i></a>
-          <a href="https://tiktok.com/@stheshana07" target="_blank" rel="noreferrer"><i className="fab fa-tiktok"></i></a>
-          <a href="https://za.linkedin.com/in/athabile-dinilanga-744309377" target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
+          <span><a href="mailto:dinilangaathabile@gmail.com" style={contactStyle}><svg style={svgStyle} viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>dinilangaathabile@gmail.com</a></span>
+          <span>
+            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" style={contactStyle}>
+              <svg style={svgStyle} viewBox="0 0 24 24"><path d="M12.012 2c-5.508 0-9.988 4.479-9.988 9.987 0 1.763.461 3.42 1.264 4.873l-1.341 4.896 5.012-1.315c1.4.764 2.99 1.17 4.654 1.17 5.507 0 9.987-4.479 9.987-9.988 0-5.508-4.48-9.987-9.987-9.987zm4.366 14.19c-.244.688-1.211 1.25-1.664 1.293-.414.04-1.134.225-3.08-.553-2.483-.993-4.068-3.522-4.193-3.687-.123-.165-1.01-1.343-1.01-2.562 0-1.218.636-1.82.862-2.066.224-.247.49-.307.653-.307.164 0 .327.002.47.009.15.006.353-.058.552.423.205.492.697 1.702.757 1.826.06.124.1.267.018.434-.082.165-.123.267-.245.41-.122.144-.256.32-.366.43-.122.12-.25.253-.108.496.143.243.633 1.042 1.357 1.687.933.83 1.72 1.085 1.964 1.207.243.123.385.103.53-.06.143-.164.61-.71.774-.954.162-.244.327-.204.55-.122.224.081 1.423.67 1.668.793.244.122.408.183.47.288.06.106.06.61-.184 1.298z"/></svg>
+              +27 66 085 1108
+            </a>
+          </span>
+          <span>
+            <a href="https://za.linkedin.com/in/athabile-dinilanga-744309377" target="_blank" rel="noopener noreferrer" style={contactStyle}>
+              <svg style={svgStyle} viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                Athabile Dinilanga
+            </a>
+          </span>
         </div>
         <p style={{ opacity: 0.5, fontSize: "0.85rem" }}>© 2026 Athabile Dinilanga. Engineered for Security & Speed.</p>
         <p style={{ opacity: 0.5, fontSize: "0.85rem" }}>Special thanks to my girlfriend, Azile Manqate, for reviewing my work.</p>
@@ -535,5 +546,19 @@ function App() {
     </div>
   );
 }
+
+const contactStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '8px',
+  color: 'inherit',
+  textDecoration: 'none'
+};
+
+const svgStyle = {
+  width: '16px',
+  height: '16px',
+  fill: 'var(--electric-blue)'
+};
 
 export default App;
