@@ -244,9 +244,10 @@ function App() {
           {[
             { title: "Ethical Hacker", desc: "Advanced foundational concepts in penetration testing frameworks, footprinting, reconnaissance, and vulnerability assessment vectors.", icon: "fa-user-shield" },
             { title: "Introduction to Cybersecurity", desc: "Comprehensive overview of the global threat landscape, data privacy governance, cryptography paradigms, and infrastructure shielding.", icon: "fa-user-shield" },
-            { title: "Introduction to Networking", desc: "In-depth architecture of routing and switching matrices, OSI/TCP-IP layers, IP addressing subnet logic, and network media operations.", icon: "fa-network-wired" },
+            { title: "C++ Essentials 1", desc: "Fundamental Algorithmic, Object-Oriented Programming (OOP) and memory management and procedural programming", icon: "fa-network-wired" },
             { title: "Python Essentials 2", desc: "Advanced object-oriented programming (OOP), packages, modules, string/list processing algorithms, exception handling hierarchies, and file I/O operations.", icon: "fa-code" },
             { title: "Python Essentials 1", desc: "Fundamental algorithmic design structures, variables, execution control flows, logical operators, data collections, and structural function matrices.", icon: "fa-terminal" }
+            { title: "Python Developer", desc: "Backend and API Development in Python. Mastery in FastAPI and Django", icon: "fa-terminal" }
           ].map((cert, index) => (
             <div 
               key={index} 
@@ -275,7 +276,7 @@ function App() {
                 </div>
                 <div>
                   <h4 style={{ color: "var(--deep-navy)", fontSize: "1.1rem", fontWeight: "700" }}>{cert.title}</h4>
-                  <span style={{ fontSize: "0.75rem", color: "var(--electric-blue)", fontWeight: "600", letterSpacing: "0.5px" }}>CISCO NETACAD</span>
+                  <span style={{ fontSize: "0.75rem", color: "var(--electric-blue)", fontWeight: "600", letterSpacing: "0.5px" }}>CISCO NETACAD | FreeCodeCamp</span>
                 </div>
               </div>
               <p className="about-subtitle" style={{ fontSize: "0.85rem", margin: "0", lineHeight: "1.5" }}>{cert.desc}</p>
@@ -292,7 +293,7 @@ function App() {
             <i className="fas fa-shield-halved"></i>
             <h3>StheshHackers</h3>
             <p>A high-performance penetration testing utility designed for auditing web infrastructure vulnerabilities and automated security scanning.</p>
-            <a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank" rel="noreferrer">Analyze Tool <i className="fas fa-arrow-right"></i></a>
+            <a href="https://stheshhackers.github.io/soossnsn/" target="_blank" rel="noreferrer">Analyze Tool <i className="fas fa-arrow-right"></i></a>
           </div>
           <div className="card">
             <i className="fas fa-brain"></i>
